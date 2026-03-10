@@ -62,6 +62,6 @@ public class ProductoController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarProducto(@PathVariable Long id) {
         productoService.eliminarProducto(id);
-        return ResponseEntity.noContent().build(); // Retorna 204 No Content (éxito sin cuerpo)
+        return ResponseEntity.noContent().build();
     }
 }

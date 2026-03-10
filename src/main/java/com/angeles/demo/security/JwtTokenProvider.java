@@ -11,7 +11,7 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    // En producción, pon esto en application.properties
+
     private static final String JWT_SECRET = "ClaveSuperSecretaParaFirmarLosTokensJWTDeLaFarmacia12345_MasTextoParaQueFuncioneElHS512";
     private static final long JWT_EXPIRATION = 86400000L; // 1 día en milisegundos
 

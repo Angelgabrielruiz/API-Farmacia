@@ -16,6 +16,8 @@ public class Farmacia {
     private String nombre;
     private String direccion;
     private String telefono;
+    private Double latitud;
+    private Double longitud;
 
     @JsonIgnore
     @ManyToOne

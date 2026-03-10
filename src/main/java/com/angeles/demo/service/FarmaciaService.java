@@ -39,6 +39,8 @@ public class FarmaciaService {
         farmacia.setNombre(request.getNombre());
         farmacia.setDireccion(request.getDireccion());
         farmacia.setTelefono(request.getTelefono());
+        farmacia.setLatitud(request.getLatitud());
+        farmacia.setLongitud(request.getLongitud());
 
         return farmaciaRepository.save(farmacia);
     }

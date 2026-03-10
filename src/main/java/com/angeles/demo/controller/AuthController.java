@@ -33,13 +33,12 @@ public class AuthController {
                 )
         );
 
-        // 2. Establecer contexto de seguridad
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        // 3. Generar Token JWT
+        // Generar Token JWT
         String token = tokenProvider.generarToken(authentication);
 
-        // 4. Obtener rol para que el frontend sepa a dónde redirigir
+        // Obtener rol para que el frontend sepa a dónde redirigir
         String rol = authentication.getAuthorities().iterator().next().getAuthority();
 
         return ResponseEntity.ok(new AuthResponse(token, rol));
@@ -49,7 +48,7 @@ public class AuthController {
     public ResponseEntity<AuthResponse> register(@RequestBody RegisterRequest registerRequest) {
         // Verificar si ya existe el email (básico)
         if(usuarioService.buscarPorEmail(registerRequest.getEmail()).isPresent()){
-            return ResponseEntity.badRequest().build(); // O manejar una excepción personalizada
+            return ResponseEntity.badRequest().build();
         }
 
         // Crear nueva entidad Usuario desde el DTO
@@ -61,7 +60,6 @@ public class AuthController {
 
         usuarioService.registrar(nuevoUsuario);
 
-        // Auto-login después del registro (Opcional, pero útil para UX móvil)
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         registerRequest.getEmail(),

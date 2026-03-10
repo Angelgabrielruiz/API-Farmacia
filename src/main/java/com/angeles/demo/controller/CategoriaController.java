@@ -23,7 +23,7 @@ public class CategoriaController {
         return ResponseEntity.ok(categoriaService.listarCategorias());
     }
 
-    // POST: Para crear nuevas categorías (Ej: "Antibióticos", "Primeros Auxilios")
+    // POST: Para crear nuevas categorías
     @PostMapping
     public ResponseEntity<Categoria> crearCategoria(@RequestBody CategoriaRequest request) {
         Categoria categoria = new Categoria();

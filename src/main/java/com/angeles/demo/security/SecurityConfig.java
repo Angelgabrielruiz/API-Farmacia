@@ -33,13 +33,11 @@ public class SecurityConfig {
                         .requestMatchers("/api/productos/publico/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                // .authenticationProvider(...)  <-- ESTA LÍNEA YA NO ES NECESARIA
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
-    // MANTEN ESTE, ES NECESARIO PARA EL LOGIN
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
@@ -54,8 +52,7 @@ public class SecurityConfig {
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
 
-        // Permitir cualquier origen (Dominios).
-        // En producción real cambias "*" por "http://mi-frontend.com"
+
         configuration.setAllowedOrigins(java.util.List.of("*"));
 
         // Métodos permitidos

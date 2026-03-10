@@ -33,6 +33,8 @@ public class FarmaciaController {
         nuevaFarmacia.setNombre(request.getNombre());
         nuevaFarmacia.setDireccion(request.getDireccion());
         nuevaFarmacia.setTelefono(request.getTelefono());
+        nuevaFarmacia.setLatitud(request.getLatitud());
+        nuevaFarmacia.setLongitud(request.getLongitud());
 
         // 3. Guardamos usando el servicio
         return ResponseEntity.ok(farmaciaService.registrarFarmacia(nuevaFarmacia, usuario.getId()));
