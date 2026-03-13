@@ -30,7 +30,7 @@ public class UsuarioService {
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
     }
 
-    public Usuario actualizarDatos(String email, String nombre, String nuevoEmail, String password) {
+    public Usuario actualizarDatos(String email, String nombre, String nuevoEmail, String password, String imagenUrl) {
         Usuario usuario = usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
@@ -47,6 +47,9 @@ public class UsuarioService {
         }
         if (password != null && !password.isBlank()) {
             usuario.setPassword(passwordEncoder.encode(password));
+        }
+        if (imagenUrl != null && !imagenUrl.isBlank()) {
+            usuario.setImagenUrl(imagenUrl);
         }
 
         return usuarioRepository.save(usuario);

@@ -9,4 +9,5 @@ public class RegisterRequest {
     private String email;
     private String password;
     private Rol rol; // Se enviará como "ROLE_CLIENTE" o "ROLE_DUENO"
+    private String imagenUrl;
 }

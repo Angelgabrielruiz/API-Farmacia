@@ -26,6 +26,9 @@ public class Usuario {
     @Enumerated(EnumType.STRING)
     private Rol rol;
 
+    @Column(columnDefinition = "LONGTEXT")
+    private String imagenUrl;
+
     @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
 
     @JsonIgnore

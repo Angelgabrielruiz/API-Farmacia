@@ -29,7 +29,8 @@ public class UsuarioController {
                 principal.getName(),
                 request.getNombre(),
                 request.getEmail(),
-                request.getPassword()
+                request.getPassword(),
+                request.getImagenUrl()
         );
         return ResponseEntity.ok(actualizado);
     }

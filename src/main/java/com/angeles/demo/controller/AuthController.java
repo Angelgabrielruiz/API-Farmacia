@@ -57,6 +57,7 @@ public class AuthController {
         nuevoUsuario.setEmail(registerRequest.getEmail());
         nuevoUsuario.setPassword(registerRequest.getPassword()); // El servicio lo encriptará
         nuevoUsuario.setRol(registerRequest.getRol());
+        nuevoUsuario.setImagenUrl(registerRequest.getImagenUrl());
 
         usuarioService.registrar(nuevoUsuario);
 
